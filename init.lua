@@ -24,6 +24,8 @@ vim.opt.scrolloff = 8
 
 vim.opt.fillchars = { eob = " " }
 
+vim.opt.shell = "powershell.exe"
+
 vim.o.guifont = "FiraCode Nerd Font:h13"
 vim.g.neovide_title_background_color =
 	string.format("%x", vim.api.nvim_get_hl(0, { id = vim.api.nvim_get_hl_id_by_name("Normal") }).bg)
