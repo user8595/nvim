@@ -14,6 +14,8 @@ vim.keymap.set("n", "<C-p>", function() require("persistence").select() end,
 -- navigation
 vim.keymap.set({ "n", "i", "v", "c" }, "<C-Home>", "<Cmd>bp<CR>", { noremap = true, desc = "Move To Next Buffer" })
 vim.keymap.set({ "n", "i", "v", "c" }, "<C-End>", "<Cmd>bn<CR>", { noremap = true, desc = "Move To Previous Buffer" })
+vim.keymap.set({ "n", "i", "v", "c" }, "<C-Tab>", "<Cmd>bn<CR>", { noremap = true, desc = "Move To Next Buffer" })
+vim.keymap.set({ "n", "i", "v", "c" }, "<S-Tab>", "<Cmd>bp<CR>", { noremap = true, desc = "Move To Previous Buffer" })
 
 vim.keymap.set({ "n", "i", "v", "c" }, "<A-[>", "<Cmd>bp<CR>", { noremap = true, desc = "Move To Next Buffer" })
 vim.keymap.set({ "n", "i", "v", "c" }, "<A-]>", "<Cmd>bn<CR>", { noremap = true, desc = "Move To Previous Buffer" })

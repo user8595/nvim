@@ -15,7 +15,12 @@ return {
   },
   { "nvim-tree/nvim-tree.lua", config = true },
   { "akinsho/bufferline.nvim", version = "*", config = true, dependencies = "nvim-tree/nvim-web-devicons" },
-  { "rcarriga/nvim-notify" },
+  {
+    "rcarriga/nvim-notify",
+    config = {
+      render = "wrapped-compact"
+    }
+  },
   {
     "nvim-telescope/telescope.nvim",
     tag = "v0.2.0",
