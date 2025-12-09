@@ -20,7 +20,7 @@ vim.opt.scrolloff = 8
 vim.opt.shortmess = "IltToOCF"
 vim.opt.showmode = false
 vim.opt.linespace = 2
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 5
 
 vim.opt.fillchars = { eob = " " }
 
@@ -31,6 +31,31 @@ if vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 then
   vim.opt.shellcmdflag = "-s"
 end
 
+vim.diagnostic.config({
+  underline = false,
+  signs = {
+    active = true,
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN]  = "",
+      [vim.diagnostic.severity.HINT]  = "󰟃",
+      [vim.diagnostic.severity.INFO]  = "",
+    },
+  },
+  virtual_text = false,
+  float = {
+    border = "single",
+    format = function(diagnostic)
+      return string.format(
+        "%s (%s) [%s]",
+        diagnostic.message,
+        diagnostic.source,
+        diagnostic.code or diagnostic.user_data.lsp.code
+      )
+    end,
+  },
+})
+
 vim.o.guifont = "FiraCode Nerd Font:h13"
 vim.g.neovide_title_background_color =
     string.format("%x", vim.api.nvim_get_hl(0, { id = vim.api.nvim_get_hl_id_by_name("Normal") }).bg)
@@ -40,7 +65,7 @@ vim.g.neovide_progress_bar_height = 5.0
 vim.g.neovide_progress_bar_animation_speed = 200.0
 vim.g.neovide_progress_bar_hide_delay = 0.2
 
-vim.g.neovide_scroll_animation_length = 0.15
+vim.g.neovide_scroll_animation_length = 0.22222222225
 
 vim.g.neovide_cursor_vfx_mode = "pixiedust"
 

@@ -28,10 +28,14 @@ return {
       open_mapping = "<C-`>",
       direction = 'float',
       autochdir = false,
-      start_in_insert = true,
+      -- start_in_insert = true,
       shell = vim.o.shell,
-
     }
+  },
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre",
+    config = true,
   },
   {
     "folke/which-key.nvim",
