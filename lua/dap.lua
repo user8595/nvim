@@ -1,4 +1,4 @@
---TODO: Make debugger work properly
+-- TODO: Make debugger work properly
 return {
   "mfussenegger/nvim-dap",
   event = "VeryLazy",

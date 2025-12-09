@@ -21,6 +21,7 @@ vim.opt.shortmess = "IltToOCF"
 vim.opt.showmode = false
 vim.opt.linespace = 2
 vim.opt.scrolloff = 5
+vim.opt.swapfile = false
 
 vim.opt.fillchars = { eob = " " }
 
@@ -32,6 +33,8 @@ if vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 then
 end
 
 vim.diagnostic.config({
+  virtual_text = true,
+  update_in_insert = true,
   underline = false,
   signs = {
     active = true,
@@ -41,8 +44,13 @@ vim.diagnostic.config({
       [vim.diagnostic.severity.HINT]  = "󰟃",
       [vim.diagnostic.severity.INFO]  = "",
     },
+    linehl = {
+      [vim.diagnostic.severity.ERROR] = "DiagnosticErrorLn",
+      [vim.diagnostic.severity.WARN]  = "DiagnosticWarnLn",
+      [vim.diagnostic.severity.INFO]  = "DiagnosticInfoLn",
+      [vim.diagnostic.severity.HINT]  = "DiagnosticHintLn",
+    },
   },
-  virtual_text = false,
   float = {
     border = "single",
     format = function(diagnostic)
@@ -56,7 +64,7 @@ vim.diagnostic.config({
   },
 })
 
-vim.o.guifont = "FiraCode Nerd Font:h13"
+vim.o.guifont = "CozetteVector:h16"
 vim.g.neovide_title_background_color =
     string.format("%x", vim.api.nvim_get_hl(0, { id = vim.api.nvim_get_hl_id_by_name("Normal") }).bg)
 

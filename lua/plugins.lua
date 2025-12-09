@@ -7,7 +7,11 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = true,
+    config = {
+      options = {
+        globalstatus = true
+      }
+    }
   },
   {
     "mason-org/mason.nvim",
